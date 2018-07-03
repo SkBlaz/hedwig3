@@ -1,11 +1,29 @@
 # Hedwig #
 
 A pattern mining tool that can exploit background knowledge in the form of RDF triplets.
+Note that this is a python3 port of the original Hedwig (anzev) (:grey_exclamation:), undergoing active development.
+
+## Short description ##
+
+Background knowledge remains un-exploited in a standard machine learning setting. Hedwig is one of the tools, capable of leverageing such knowledge for the task of rule induction. Instances are embedded into semantic space, where Hedwig can generalize rules, produced by fast beam search. The criterion optimized is as follows.
+
+\begin{align}
+  \mathfrak{R}_{opt} = \argmax_{\mathfrak{R}}\frac{\sum_{r \in \mathfrak{R}}\epsilon(r)}{\sum_{\substack{r_{i},r_{j}\in \mathfrak{R} \\ i \neq j}}|Cov(r_{i}) \cap Cov(r_{j})|+1}
+  \label{eq:HedwigScore}
+\end{align}
+
+\noindent where $\mathfrak{R}$ represents a set of rules being optimized, $r \in \mathfrak{R}$ represents a single rule, and $Cov(r_i)$ denotes the set of examples covered by $r_i$. In Hedwig, a set of rules (a beam of size $b$) is iteratively refined during the learning phase using a selected refinement heuristic, such as for example lift or weighted relative accuracy.
+
+The term $\sum_{r \in \mathfrak{R}}\epsilon(r)$  corresponds to the quality of individual rules. Simultaneously, the rules shall not overlap, which is achieved by introduction of the following term:
+$\sum_{\substack{r_{i},r_{j}\in \mathfrak{R} \\ i \neq j}}|Cov(r_{i}) \cap Cov(r_{j})|+1.$ 
+Here, Hedwig aims to minimize the intersection of instances, covered by rules $r_{i}$ and $r_{j}$.
+
+ Essentially, we want to maximize rule quality of the set of rules (the numerator), while at the same time having the rules cover different parts of the example space (minimize the denominator).
 
 ## Installation ##
 
 ```bash
-python setup.py install
+pythone setup.py install
 ```
 
 ## Example ##
