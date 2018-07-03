@@ -12,11 +12,11 @@ Background knowledge remains un-exploited in a standard machine learning setting
   \label{eq:HedwigScore}
 \end{align}
 
-\noindent where $\mathfrak{R}$ represents a set of rules being optimized, $r \in \mathfrak{R}$ represents a single rule, and $Cov(r_i)$ denotes the set of examples covered by $r_i$. In Hedwig, a set of rules (a beam of size $b$) is iteratively refined during the learning phase using a selected refinement heuristic, such as for example lift or weighted relative accuracy.
+\noindent where $ \mathfrak{R} $ represents a set of rules being optimized, $ r \in \mathfrak{R} $ represents a single rule, and $ Cov(r_i) $ denotes the set of examples covered by $ r_i $. In Hedwig, a set of rules (a beam of size $ b $) is iteratively refined during the learning phase using a selected refinement heuristic, such as for example lift or weighted relative accuracy.
 
-The term $\sum_{r \in \mathfrak{R}}\epsilon(r)$  corresponds to the quality of individual rules. Simultaneously, the rules shall not overlap, which is achieved by introduction of the following term:
-$\sum_{\substack{r_{i},r_{j}\in \mathfrak{R} \\ i \neq j}}|Cov(r_{i}) \cap Cov(r_{j})|+1.$ 
-Here, Hedwig aims to minimize the intersection of instances, covered by rules $r_{i}$ and $r_{j}$.
+The term $ \sum_{r \in \mathfrak{R}}\epsilon(r) $  corresponds to the quality of individual rules. Simultaneously, the rules shall not overlap, which is achieved by introduction of the following term:
+$ \sum_{\substack{r_{i},r_{j}\in \mathfrak{R} \\ i \neq j}}|Cov(r_{i}) \cap Cov(r_{j})|+1. $ 
+Here, Hedwig aims to minimize the intersection of instances, covered by rules $ r_{i}$ and $r_{j} $.
 
  Essentially, we want to maximize rule quality of the set of rules (the numerator), while at the same time having the rules cover different parts of the example space (minimize the denominator).
 
