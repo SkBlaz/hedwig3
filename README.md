@@ -7,7 +7,7 @@ Note that this is a python3 port of the original Hedwig (anzev) (:grey_exclamati
 
 Background knowledge remains un-exploited in a standard machine learning setting. Hedwig is one of the tools, capable of leverageing such knowledge for the task of rule induction. Instances are embedded into semantic space, where Hedwig can generalize rules, produced by fast beam search. The criterion optimized is as follows.
 
-$ \mathfrak{R}_{opt} = \textrm{argmax}_{\mathfrak{R}} $
+$ \mathfrak{R}_{opt} = argmax_{\mathfrak{R}} $
 
 $ = \textrm{argmax}_{\mathfrak{R}} \frac{\sum_{r \in \mathfrak{R}}\epsilon(r)}{\sum_{\substack{r_{i},r_{j}\in \mathfrak{R}; i \neq j}}|Cov(r_{i}) \cap Cov(r_{j})|+1} $
 
