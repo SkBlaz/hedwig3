@@ -75,14 +75,14 @@ class ExperimentKB:
             annotation_links = [annot for annot in annot_objects]
             annotations = []
             weights = {}
-            to_uni = lambda s: unicode(s).encode('ascii', 'ignore')
+#            to_uni = lambda s: str(s, 'utf-8').encode('ascii', 'ignore')
 
             for link in annotation_links:
 
                 # Query for annotation objects via this link
                 annot_objects = g.objects(subject=link,
                                                predicate=HEDWIG.annotation)
-                annotation = [to_uni(one) for one in annot_objects][0]
+                annotation = [one for one in annot_objects][0]
 
                 # Query for weights on this link
                 weight_objects = g.objects(subject=link,
@@ -178,8 +178,8 @@ class ExperimentKB:
 
 
     def _find_roots(self, all_annotations):
-        roots = filter(lambda pred: not self.sub_class_of[pred],
-                       self.super_class_of.keys())
+        roots = list(filter(lambda pred: not self.sub_class_of[pred],
+                       self.super_class_of.keys()))
 
         # Check for annotations not in the ontology to add them as roots
         for annotation in all_annotations:
@@ -279,11 +279,11 @@ class ExperimentKB:
                 self.reverse_bit_binary_members[pred][el] = indices
 
     def _propagate_annotation_names(self, g):
-        to_uni = lambda s: unicode(s).encode('ascii', 'ignore')
+        #to_uni = lambda s:  s.decode('unicode-escape')#str(s, 'utf-8').encode('ascii', 'ignore')
 
         # Query for annotation names
         for sub, obj in g.subject_objects(predicate=HEDWIG.annotation_name):
-            sub, obj = to_uni(sub), to_uni(obj)
+            sub, obj = sub, obj
             self.annotation_name[sub].append(obj)
             logger.debug('Annotation name root: %s, %s' % (sub, obj))
 
@@ -299,8 +299,8 @@ class ExperimentKB:
         '''
         Adds the resource 'sub' as a subclass of 'obj'.
         '''
-        to_uni = lambda s: unicode(s).encode('ascii', 'ignore')
-        sub, obj = to_uni(sub), to_uni(obj)
+        #to_uni = lambda s:  s.decode('unicode-escape')#str(s, 'utf-8').encode('ascii', 'ignore')
+        sub, obj = sub, obj
 
         self.predicates.update([sub, obj])
         if obj not in self.sub_class_of[sub]:
