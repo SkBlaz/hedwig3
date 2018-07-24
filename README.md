@@ -20,7 +20,7 @@ Here, Hedwig aims to minimize the intersection of instances, covered by rules $ 
 ## Installation ##
 
 ```bash
-pythone setup.py install
+python3 setup.py install
 ```
 
 ## Example ##
@@ -28,18 +28,18 @@ pythone setup.py install
 View all the options:
 
 ```bash
-python -m hedwig --help
+python3 -m hedwig --help
 ```
 
 Running with default parameters and outputing the rules to a file:
 
 ```bash
-python -m hedwig <path-to-folder-with-domain-rdf-files> <examples-file>.n3 -o rules
+python3 -m hedwig <path-to-folder-with-domain-rdf-files> <examples-file>.n3 -o rules
 ```
 Running the included `numbers` mini-example:
 
 ```bash
-python -m hedwig example/numbers/ontology/ example/numbers/data.n3 --output=rules --adjust=none --leaves --support=0 --beam=1
+python3 -m hedwig example/numbers/ontology/ example/numbers/data.n3 --output=rules --adjust=none --leaves --support=0 --beam=1
 ```
 
 ## Simple hierarchy example with CSV data ##
@@ -48,7 +48,7 @@ If you want to use just simple hierarchies of features, you don't need to resort
 to RDF. Just run hedwig with the `--format=csv` flag, for example:
 
 ```bash
-python -m hedwig --format=csv tests/data/csv/ontology/ tests/data/csv/Cities_clusters.csv -o rules
+python3 -m hedwig --format=csv tests/data/csv/ontology/ tests/data/csv/Cities_clusters.csv -o rules
 ```
 
 Hierarchy files must have the `.tsv` suffix, with the following structure:
