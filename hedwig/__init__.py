@@ -40,16 +40,16 @@ def generate_rules_report(kwargs, rules_per_target,
 
 
 def run(kwargs, cli=False):
-
     if cli:
         logger.setLevel(logging.DEBUG if kwargs['verbose'] else logging.INFO)
     else:
         logger.setLevel(logging.NOTSET)
 
-    logger.info('Starting Hedwig')
+    logger.info('Starting Hedwig3')
     start = time.time()
     start_date = datetime.now().isoformat()
-
+    
+    ## here comest the network reduction part.
     graph = build_graph(kwargs)
 
     logger.info('Building the knowledge base')
@@ -107,7 +107,7 @@ def build_graph(kwargs):
             cache=not kwargs['nocache']
         )
     except Exception as e:
-        print (e)
+        print (e,"Could not load the graph..")
         exit(1)
     return graph
 
@@ -152,5 +152,3 @@ def run_learner(kwargs, kb, validator):
         rules_per_target.append((target, rules))
 
     return rules_per_target
-
-

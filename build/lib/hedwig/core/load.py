@@ -140,7 +140,6 @@ def csv(hierarchy_files, data):
 
 
 def load_graph(ontology_list, data, def_format='n3', cache=True):
-
     def filter_valid_files(paths):
         if def_format == 'csv':
             filter_fn = lambda p: p.endswith('.csv') or p.endswith('.tsv')
@@ -157,7 +156,8 @@ def load_graph(ontology_list, data, def_format='n3', cache=True):
         logger.info('Loading cached graph structure')
         g = _load_cached_graph(cached_fn)
     else:
-        logger.info('Building graph structure')
+        logger.info('Building graph structure from')
+        
         if def_format == 'n3':
             g = rdf(paths, def_format=def_format)
         elif def_format == 'csv':
@@ -182,5 +182,5 @@ def _load_cached_graph(fn):
 
 
 def _save_graph_to_cache(g, fn):
-    with open(fn, 'w') as f:
+    with open(fn, 'wb') as f:
         cPickle.dump(g, f)
