@@ -24,7 +24,6 @@ def _parameters_report(args, start, time_taken):
 
     return rep
 
-
 def generate_rules_report(kwargs, rules_per_target,
                           human=lambda label, rule: label):
     rules_report = ''
@@ -57,7 +56,6 @@ def run(kwargs, cli=False):
     kb = ExperimentKB(graph, score_func, instances_as_leaves=kwargs['leaves'])
     validator = Validate(kb, significance_test=significance.apply_fisher,
                          adjustment=getattr(adjustment, kwargs['adjust']))
-
 
     rules_per_target = run_learner(kwargs, kb, validator)
     rules_report = generate_rules_report(kwargs, rules_per_target)
@@ -123,7 +121,7 @@ def run_learner(kwargs, kb, validator):
 
     for target in targets:
         if target:
-            logger.info('Starting learner for target \'%s\'' % target)
+            logger.info('Starting '+kwargs['learner']+' learner for target \'%s\'' % target)
         else:
             logger.info('Ranks detected - starting learner.')
 

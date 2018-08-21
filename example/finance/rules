@@ -1,51 +1,53 @@
 ----------------------------------------
 Hedwig semantic pattern mining (anze.vavpetic@ijs.si)
-Version: 0.2.1
-Start: 2014-08-25T11:20:45.157505
-Time taken: 23.78 seconds
+Version: 0.3.1
+Start: 2018-08-21T13:21:06.707442
+Time taken: 43.59 seconds
 Parameters:
+	bk_dir=ontology/
+	data=data.n3
+	format=n3
+	output=rules
+	covered=None
+	mode=subgroups
+	target=None
+	score=lift
+	negations=False
+	alpha=0.05
 	adjust=fwer
 	FDR=0.05
-	target=None
 	leaves=True
-	support=0.1
 	learner=heuristic
-	depth=5
-	verbose=False
-	beam=20
-	alpha=0.05
-	bk_dir=ontology/
-	mode=subgroups
-	covered=None
-	output=rules
-	score=wracc
-	data=data.n3
+	optimalsubclass=False
 	uris=False
-	negations=False
+	beam=20
+	support=0.1
+	depth=5
+	nocache=True
+	verbose=False
 ----------------------------------------
 'A'(X) <--
-	geo_region(X, cou_NL), geo_region(X, City) [cov=27, pos=25, prec=0.926, wracc=0.053, pval=0.000]
-	geo_region(X, cou_NL), geo_region(X, Capital) [cov=26, pos=24, prec=0.923, wracc=0.050, pval=0.000]
-	geo_region(X, cou_NL) [cov=29, pos=26, prec=0.897, wracc=0.048, pval=0.000]
-	annotated_with(X, Other) [cov=42, pos=33, prec=0.786, wracc=0.023, pval=0.000]
+	geo_region(X, cou_NL), geo_region(X, City) [cov=27, pos=25, prec=0.926, lift=1.268, pval=0.000]
+	geo_region(X, cou_NL), geo_region(X, Capital) [cov=26, pos=24, prec=0.923, lift=1.264, pval=0.000]
+	geo_region(X, cou_NL) [cov=29, pos=26, prec=0.897, lift=1.228, pval=0.000]
 'B'(X) <--
-	geo_region(X, cou_GR), geo_region(X, cou_FR), annotated_with(X, Fiscal_Policy), annotated_with(X, Organization) [cov=33, pos=19, prec=0.576, wracc=0.101, pval=0.000]
-	annotated_with(X, Organization), geo_region(X, cou_FR), annotated_with(X, Fiscal_Policy), geo_region(X, reg_Eastern_Asia) [cov=20, pos=15, prec=0.750, wracc=0.096, pval=0.000]
-	geo_region(X, cou_GR), geo_region(X, cou_FR), annotated_with(X, Fiscal_Policy), annotated_with(X, org_EU) [cov=32, pos=18, prec=0.562, wracc=0.094, pval=0.000]
-	annotated_with(X, Organization), geo_region(X, cou_FR), annotated_with(X, Fiscal_Policy) [cov=36, pos=19, prec=0.528, wracc=0.093, pval=0.000]
-	annotated_with(X, Nicolas_Sarkozy) [cov=25, pos=16, prec=0.640, wracc=0.092, pval=0.000]
-	geo_region(X, cou_GR), annotated_with(X, glo_StandardPoor), annotated_with(X, Organization) [cov=18, pos=14, prec=0.778, wracc=0.091, pval=0.000]
-	annotated_with(X, org_EU), geo_region(X, cou_FR), annotated_with(X, Fiscal_Policy) [cov=33, pos=18, prec=0.545, wracc=0.091, pval=0.000]
-	annotated_with(X, org_EU), annotated_with(X, Protagonist) [cov=30, pos=17, prec=0.567, wracc=0.089, pval=0.000]
-	annotated_with(X, org_EU), geo_region(X, cou_FR), annotated_with(X, Fiscal_Policy), geo_region(X, reg_Eastern_Asia) [cov=19, pos=14, prec=0.737, wracc=0.089, pval=0.000]
-	annotated_with(X, Organization), geo_region(X, cou_FR) [cov=38, pos=19, prec=0.500, wracc=0.087, pval=0.000]
-	geo_region(X, cou_GR), geo_region(X, cou_FR), annotated_with(X, Fiscal_Policy) [cov=38, pos=19, prec=0.500, wracc=0.087, pval=0.000]
-	annotated_with(X, Organization), annotated_with(X, Protagonist) [cov=31, pos=17, prec=0.548, wracc=0.086, pval=0.000]
-	annotated_with(X, org_EU), geo_region(X, cou_FR) [cov=35, pos=18, prec=0.514, wracc=0.085, pval=0.000]
-	geo_region(X, reg_Eastern_Asia), geo_region(X, City), geo_region(X, cou_FR), annotated_with(X, Fiscal_Policy) [cov=24, pos=15, prec=0.625, wracc=0.085, pval=0.000]
-	geo_region(X, cou_GR), annotated_with(X, glo_StandardPoor), annotated_with(X, org_EU) [cov=17, pos=13, prec=0.765, wracc=0.084, pval=0.000]
-	geo_region(X, cou_GR), annotated_with(X, glo_StandardPoor) [cov=21, pos=14, prec=0.667, wracc=0.083, pval=0.000]
-	annotated_with(X, Organization), annotated_with(X, glo_StandardPoor) [cov=21, pos=14, prec=0.667, wracc=0.083, pval=0.000]
-	geo_region(X, reg_Eastern_Asia), geo_region(X, Capital) [cov=36, pos=18, prec=0.500, wracc=0.083, pval=0.000]
-	geo_region(X, reg_Eastern_Asia), geo_region(X, City), geo_region(X, cou_FR) [cov=25, pos=15, prec=0.600, wracc=0.082, pval=0.000]
-	geo_region(X, cou_GR), geo_region(X, cou_FR) [cov=40, pos=19, prec=0.475, wracc=0.082, pval=0.000]
+	geo_region(X, reg_Eastern_Asia), annotated_with(X, glo_StandardPoor) [cov=12, pos=10, prec=0.833, lift=3.086, pval=0.000]
+	geo_region(X, reg_Eastern_Asia), annotated_with(X, Pos_Financial_Sentiment), annotated_with(X, Angela_Merkel) [cov=12, pos=10, prec=0.833, lift=3.086, pval=0.000]
+	annotated_with(X, org_IMF), annotated_with(X, Financial_Failure_Term) [cov=10, pos=8, prec=0.800, lift=2.963, pval=0.000]
+	annotated_with(X, Nicolas_Sarkozy), annotated_with(X, Financial_Crisis_Term) [cov=10, pos=8, prec=0.800, lift=2.963, pval=0.000]
+	annotated_with(X, org_EU), annotated_with(X, Rating_Agency), annotated_with(X, Nicolas_Sarkozy) [cov=14, pos=11, prec=0.786, lift=2.910, pval=0.000]
+	geo_region(X, reg_Eastern_Asia), annotated_with(X, Angela_Merkel) [cov=16, pos=12, prec=0.750, lift=2.778, pval=0.000]
+	annotated_with(X, org_EU), annotated_with(X, Rating_Agency), annotated_with(X, Company) [cov=16, pos=12, prec=0.750, lift=2.778, pval=0.000]
+	annotated_with(X, org_EU), annotated_with(X, glo_StandardPoor) [cov=18, pos=13, prec=0.722, lift=2.675, pval=0.000]
+	geo_region(X, reg_Eastern_Asia), annotated_with(X, Pos_Financial_Sentiment) [cov=17, pos=12, prec=0.706, lift=2.614, pval=0.000]
+	annotated_with(X, Index), annotated_with(X, Pos_Financial_Sentiment), annotated_with(X, Angela_Merkel) [cov=10, pos=7, prec=0.700, lift=2.593, pval=0.002]
+	annotated_with(X, Index), annotated_with(X, glo_StandardPoor) [cov=13, pos=9, prec=0.692, lift=2.564, pval=0.000]
+	annotated_with(X, Nicolas_Sarkozy), annotated_with(X, Financial_Markets) [cov=22, pos=15, prec=0.682, lift=2.525, pval=0.000]
+	annotated_with(X, Organization), annotated_with(X, glo_StandardPoor) [cov=21, pos=14, prec=0.667, lift=2.469, pval=0.000]
+	annotated_with(X, Nicolas_Sarkozy), annotated_with(X, Pos_Financial_Sentiment) [cov=18, pos=12, prec=0.667, lift=2.469, pval=0.000]
+	annotated_with(X, Index), annotated_with(X, Angela_Merkel) [cov=12, pos=8, prec=0.667, lift=2.469, pval=0.001]
+	annotated_with(X, Nicolas_Sarkozy) [cov=25, pos=16, prec=0.640, lift=2.370, pval=0.000]
+	annotated_with(X, org_EU), annotated_with(X, Rating_Agency) [cov=22, pos=14, prec=0.636, lift=2.357, pval=0.000]
+	annotated_with(X, Index), annotated_with(X, Financial_Failure_Term) [cov=11, pos=7, prec=0.636, lift=2.357, pval=0.005]
+	annotated_with(X, Company), annotated_with(X, Angela_Merkel) [cov=23, pos=14, prec=0.609, lift=2.254, pval=0.000]
+	geo_region(X, cou_HK), annotated_with(X, Company) [cov=15, pos=9, prec=0.600, lift=2.222, pval=0.002]

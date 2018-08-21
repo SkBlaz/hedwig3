@@ -205,6 +205,7 @@ class Learner:
             specializations.extend(specialize_optimal_subclass(rule))
 
         if self.use_negations:
+            
             # Negate the last predicate
             for pred in filter(is_unary, eligible_preds):
                 logger.debug('Predicate to negate: %s' % pred.label)
