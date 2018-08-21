@@ -156,7 +156,7 @@ def load_graph(ontology_list, data, def_format='n3', cache=True):
         logger.info('Loading cached graph structure')
         g = _load_cached_graph(cached_fn)
     else:
-        logger.info('Building graph structure from')
+        logger.info('Building graph structure')
         
         if def_format == 'n3':
             g = rdf(paths, def_format=def_format)
@@ -164,6 +164,7 @@ def load_graph(ontology_list, data, def_format='n3', cache=True):
             g = csv(ontology_list, data)
         if cache:
             _save_graph_to_cache(g, cached_fn)
+
     return g
 
 

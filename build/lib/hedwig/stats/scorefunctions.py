@@ -143,5 +143,6 @@ def interesting(rule):
     '''
     Checks if a given rule is interesting for the given score function
     '''
-    score_fun = rule.kb.score_fun
-    return _bounds[score_fun][0] < rule.score <= _bounds[score_fun][1]
+    score_fun = rule.kb.score_fun    
+    filtered_bounds = _bounds[score_fun][0] < rule.score <= _bounds[score_fun][1]
+    return filtered_bounds

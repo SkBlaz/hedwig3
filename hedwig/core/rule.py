@@ -350,7 +350,7 @@ class Rule:
 
     @staticmethod
     def _latex_ruleset_report(rules):
-        target, var = rules[0].target, rules[0].head_var
+        target, var = list(rules)[0].target, list(rules)[0].head_var
         if target:
             head = '%s(%s) $\leftarrow$ ' % (target, var)
         else:
@@ -382,7 +382,7 @@ class Rule:
     def _plain_ruleset_report(rules, show_uris=False,
                               human=lambda label, rule: label):
 
-        target, var = rules[0].target, rules[0].head_var
+        target, var = list(rules)[0].target, list(rules)[0].head_var
         if target:
             head = '\'%s\'(%s) <--\n\t' % (target, var)
         else:

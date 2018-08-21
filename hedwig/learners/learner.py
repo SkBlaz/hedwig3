@@ -85,9 +85,14 @@ class Learner:
         Induces rules for the given knowledge base.
         '''
         root_pred = self.kb.get_root()
+
         rules = [Rule(self.kb, predicates=[root_pred], target=self.target)]
+
         rules = self.__induce_level(rules)
-        return filter(interesting, rules)
+        
+        interesting_rules = list(filter(interesting, rules))
+
+        return interesting_rules
 
     def __induce_level(self, rules):
         '''

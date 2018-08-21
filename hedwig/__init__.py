@@ -10,7 +10,6 @@ from hedwig.stats import scorefunctions, adjustment, significance, Validate
 from hedwig.core.load import load_graph
 from hedwig.core.settings import VERSION, DESCRIPTION, logger
 
-
 def _parameters_report(args, start, time_taken):
     sep = '-'*40 + '\n'
     rep = DESCRIPTION + '\n' +\
@@ -30,6 +29,7 @@ def generate_rules_report(kwargs, rules_per_target,
                           human=lambda label, rule: label):
     rules_report = ''
     for _, rules in rules_per_target:
+        
         if rules:
             rules_report += Rule.ruleset_report(rules, show_uris=kwargs['uris'],
                                                 human=human)
@@ -51,17 +51,16 @@ def run(kwargs, cli=False):
     
     ## here comest the network reduction part.
     graph = build_graph(kwargs)
-
+        
     logger.info('Building the knowledge base')
     score_func = getattr(scorefunctions, kwargs['score'])
     kb = ExperimentKB(graph, score_func, instances_as_leaves=kwargs['leaves'])
-
     validator = Validate(kb, significance_test=significance.apply_fisher,
                          adjustment=getattr(adjustment, kwargs['adjust']))
 
+
     rules_per_target = run_learner(kwargs, kb, validator)
     rules_report = generate_rules_report(kwargs, rules_per_target)
-    
 
     end = time.time()
     time_taken = end-start
@@ -140,6 +139,7 @@ def run_learner(kwargs, kb, validator):
                           sim=0.9,
                           use_negations=kwargs['negations'],
                           optimal_subclass=kwargs['optimalsubclass'])
+
         rules = learner.induce()
 
         if kb.is_discrete_target():
