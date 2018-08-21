@@ -288,7 +288,7 @@ class ExperimentKB:
             logger.debug('Annotation name root: %s, %s' % (sub, obj))
 
         # Propagate the annotation names to children
-        annotation_name_roots = self.annotation_name.keys()
+        annotation_name_roots = list(self.annotation_name.keys())
         for pred in self.predicates:
             for annotation_root in annotation_name_roots:
                 if annotation_root in self.super_classes(pred):
