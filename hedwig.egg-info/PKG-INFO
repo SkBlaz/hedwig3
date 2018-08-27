@@ -1,11 +1,12 @@
 Metadata-Version: 1.1
 Name: hedwig
 Version: 0.3.1
-Summary: Hedwig semantic pattern mining (anze.vavpetic@ijs.si)
+Summary: Hedwig semantic pattern mining (blaz.skrlj@ijs.si and anze.vavpetic@ijs.si)
 Home-page: https://github.com/skblaz/hedwig2
 Author: Blaz Skrlj
 Author-email: blaz.skrlj@ijs.si
 License: MIT License
+Description-Content-Type: UNKNOWN
 Description: # Hedwig #
         
         A pattern mining tool that can exploit background knowledge in the form of RDF triplets.
