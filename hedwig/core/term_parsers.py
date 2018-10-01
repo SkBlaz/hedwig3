@@ -35,20 +35,7 @@ def parse_gaf_file(gaf_mappings,whole_list_counts=False):
                         whole_list.append(parts[4])
                 except:
                     pass
-    else:
-       with open(gaf_mappings,"rb") as im:
-            for line in im:
-                line = line.decode("utf-8")
-                parts = line.strip().split("\t")
-                try:
-                    if parts[4] != "":
-                        uniGO[parts[1]].add(parts[4]) ## GO and ref both added
 
-                    if whole_list_counts:
-                        whole_list.append(parts[4])
-                except:
-                    pass
-                
     if whole_list_counts:
         return (uniGO,whole_list)    
     else:

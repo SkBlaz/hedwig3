@@ -6,7 +6,6 @@ Home-page: https://github.com/skblaz/hedwig2
 Author: Blaz Skrlj
 Author-email: blaz.skrlj@ijs.si
 License: MIT License
-Description-Content-Type: UNKNOWN
 Description: # Hedwig #
         
         A pattern mining tool that can exploit background knowledge in the form of RDF triplets.

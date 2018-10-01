@@ -24,7 +24,6 @@ hedwig/core/predicate.py
 hedwig/core/rule.py
 hedwig/core/settings.py
 hedwig/core/term_parsers.py
-hedwig/core/term_parsers.py~
 hedwig/learners/__init__.py
 hedwig/learners/bottomup.py
 hedwig/learners/learner.py
