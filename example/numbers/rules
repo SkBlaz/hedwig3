@@ -1,8 +1,8 @@
 ----------------------------------------
-Hedwig semantic pattern mining (anze.vavpetic@ijs.si)
+Hedwig semantic pattern mining (blaz.skrlj@ijs.si and anze.vavpetic@ijs.si)
 Version: 0.3.1
-Start: 2018-08-21T08:43:34.338409
-Time taken: 0.03 seconds
+Start: 2019-01-15T08:40:25.840366
+Time taken: 0.02 seconds
 Parameters:
 	bk_dir=ontology/
 	data=data.n3
@@ -14,6 +14,7 @@ Parameters:
 	score=lift
 	negations=False
 	alpha=0.05
+	latex_report=False
 	adjust=none
 	FDR=0.05
 	leaves=True
